@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <title>Guess The Word</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="game" id="game">
+      <div class="top">
+        <h1>Guess The <em>Word</em></h1>
+        <div class="lives" id="lives" aria-label="remaining guesses"></div>
+      </div>
+
+      <div class="banner" id="banner"></div>
+
+      <div class="hint-row">
+        <span class="tag">Hint —</span>
+        <span class="hint-text" id="hint"></span>
+      </div>
+
+      <div class="tiles" id="tiles"></div>
+
+      <div class="status-row">
+        <span id="progressText"></span>
+        <span class="wrong-letters"
+          >Wrong: <span id="wrongLetters"></span
+        ></span>
+      </div>
+
+      <div class="keyboard" id="keyboard"></div>
+
+      <div class="actions">
+        <button class="btn ghost" id="newWordBtn" type="button">
+          New word
+        </button>
+        <button class="btn primary" id="resetBtn" type="button">
+          Reset game
+        </button>
+      </div>
+    </div>
+
+    <script src="js/words.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
