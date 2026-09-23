@@ -1,4 +1,5 @@
 const MAX_GUESSES = 8;
+const KEYBOARD_ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
 const tilesEl = document.getElementById("tiles");
 const hintEl = document.getElementById("hint");
@@ -19,14 +20,19 @@ let over = false;
 
 function buildKeyboard() {
   keyboardEl.innerHTML = "";
-  "abcdefghijklmnopqrstuvwxyz".split("").forEach((letter) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "key";
-    btn.textContent = letter;
-    btn.dataset.letter = letter;
-    btn.addEventListener("click", () => guess(letter));
-    keyboardEl.appendChild(btn);
+  KEYBOARD_ROWS.forEach((row) => {
+    const rowEl = document.createElement("div");
+    rowEl.className = "key-row";
+    row.split("").forEach((letter) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "key";
+      btn.textContent = letter;
+      btn.dataset.letter = letter;
+      btn.addEventListener("click", () => guess(letter));
+      rowEl.appendChild(btn);
+    });
+    keyboardEl.appendChild(rowEl);
   });
 }
 
@@ -46,7 +52,7 @@ function renderLives() {
   });
 }
 
-function renderTiles(justFilled) {
+function renderTiles() {
   tilesEl.innerHTML = "";
   for (const ch of word) {
     const tile = document.createElement("div");

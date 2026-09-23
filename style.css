@@ -164,12 +164,19 @@ body {
 }
 
 .keyboard {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 6px;
   margin-bottom: 20px;
 }
+.key-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
 .key {
+  flex: 1;
+  max-width: 34px;
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
   font-weight: 500;
@@ -316,10 +323,8 @@ body {
     height: 42px;
     font-size: 17px;
   }
-  .keyboard {
-    grid-template-columns: repeat(7, 1fr);
-  }
   .key {
+    max-width: 28px;
     font-size: 12px;
     padding: 9px 0;
   }
